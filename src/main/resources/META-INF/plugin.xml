@@ -28,7 +28,15 @@
 
     <change-notes>
         <![CDATA[
-        <p>Trying to expand Compatibility Range</p>
+        <p>1.5.3</p>
+        <ul>
+            <li>修复输入路径过长的问题</li>
+            <li>文件缺失时不再显示比对框框</li>
+        </ul>
+        <p>1.5.2</p>
+        <ul>
+            <li>适配更多版本</li>
+        </ul>
         ]]>
 
     </change-notes>

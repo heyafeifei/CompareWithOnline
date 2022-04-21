@@ -1,7 +1,8 @@
 package settings;
 
+import com.intellij.ui.EditorTextField;
+import com.intellij.ui.ExpandableEditorSupport;
 import com.intellij.ui.components.JBLabel;
-import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.FormBuilder;
 
 import javax.swing.*;
@@ -18,12 +19,14 @@ import java.util.Set;
 public class AppSettingsComponent {
     private final JPanel myMainPanel;
 
-    private final JBTextField pathJson = new JBTextField();
+    private final EditorTextField pathJson = new EditorTextField();
+
 
     public AppSettingsComponent() {
-
+        JComponent label = new JBLabel("PathMap: ");
+        new ExpandableEditorSupport(pathJson);
         myMainPanel = FormBuilder.createFormBuilder()
-                .addLabeledComponent(new JBLabel("PathMap1: "), pathJson, 1, false)
+                .addLabeledComponent(label, pathJson, 1, false)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
     }

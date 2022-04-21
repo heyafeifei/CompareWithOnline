@@ -31,8 +31,6 @@ public class CompareWithOnline extends AnAction {
 
         SetOnlineBranchLocalPath settings = SetOnlineBranchLocalPath.getInstance();
 
-
-
         Map<String, String> pathJson = settings.pathJson;
         String onLinePath = getOnlinePath(classPath, pathJson);
         if (null == onLinePath || "".equals(onLinePath)) {
@@ -47,10 +45,13 @@ public class CompareWithOnline extends AnAction {
     private void showDiff(String selfFilePath, String onlineBranchLocalRootPath, Project project) {
         VirtualFile virtualFil1 = getVirtualFile(selfFilePath);
         VirtualFile virtualFil2 = getVirtualFile(onlineBranchLocalRootPath);
-        UIUtil.invokeLaterIfNeeded(() -> {
-            DiffRequest request = DiffRequestFactory.getInstance().createFromFiles(project, virtualFil1, virtualFil2);
-            DiffManager.getInstance().showDiff(project, request);
-        });
+        if(null != virtualFil1  && null != virtualFil2){
+            UIUtil.invokeLaterIfNeeded(() -> {
+                DiffRequest request = DiffRequestFactory.getInstance().createFromFiles(project, virtualFil1, virtualFil2);
+                DiffManager.getInstance().showDiff(project, request);
+            });
+        }
+
     }
 
     private VirtualFile getVirtualFile(String filePath) {

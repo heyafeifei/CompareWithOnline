@@ -1,0 +1,56 @@
+<idea-plugin>
+    <id>communism.heyafei.CompareWithOtherDirFile</id>
+    <name>CompareWithOnline</name>
+    <vendor url="https://github.com/heyafeifei/CompareWithOtherDirFile" email="379284166@qq.com">heyafei</vendor>
+
+    <version>1.5.2</version>
+
+    <idea-version since-build="201" until-build="221.*"/>
+
+    <description>
+        <![CDATA[
+            <br/>
+            Compare with a file with the same name in another local path
+            <br/>
+            <h3>How to use</h3>
+            <ol>
+              <li>Configured menu pathTools->Config Path, fill in your own path mapping, for example:/root_1/locaoPath_1=/otherRoot_1/locaoOtherPath_1,/root_2/locaoPath_2=/otherRoot_2/locaoOtherPath_2</li>
+              <li>Right-click in the file edit box and select "CompareWithOnline"</li>
+            </ol>
+
+            <br/>
+            <p>和本地另一目录下的同名文件比对差异</p>
+            <br/>
+            <p>使用前需要先配置文件目录的对应关系，如PATH1=PATH2,PATH3=PATH4。配置的菜单路径Tools->Config Path。</p>
+            <br/>
+        ]]>
+    </description>
+
+    <change-notes>
+        <![CDATA[
+        <p>Trying to expand Compatibility Range</p>
+        ]]>
+
+    </change-notes>
+
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="settings.SetOnlineBranchLocalPath"/>
+        <applicationConfigurable parentId="tools" instance="settings.AppSettingsConfigurable"
+                                 id="settings.AppSettingsConfigurable"
+                                 displayName="Config Path"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="CompareWithOnline" class="CompareWithOnline" text="CompareWithOnline">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="CompareClipboardWithSelection"  />
+        </action>
+
+    </actions>
+</idea-plugin>

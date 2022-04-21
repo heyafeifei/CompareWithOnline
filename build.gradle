@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id "org.jetbrains.intellij" version "1.5.2"
+}
+
+group 'communism.heyafei.compare1'
+version '1.5.2'
+
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+    }
+}
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    compile 'org.tmatesoft.svnkit:svnkit:1.9.3'
+
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+//
+intellij {
+    version = '2020.3'
+}
+
+//插件适用的版本
+patchPluginXml {
+    sinceBuild = '201'
+    untilBuild = '221'
+}
+
+//适用gradle发布插件的签名，需要设置gradle.properties
+publishPlugin {
+    token = project.property("publishToken")
+}
+
+
+test {
+    useJUnitPlatform()
+}

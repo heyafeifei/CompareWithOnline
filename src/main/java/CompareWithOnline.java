@@ -67,6 +67,8 @@ public class CompareWithOnline extends AnAction {
 
     private String getOnlinePath(String classPath, Map<String, String> pathJson) {
 
+        classPath = classPath.replaceAll("\\\\","/");
+
         String onlinePath = "";
         Set keySet = pathJson.keySet();
         Iterator<String> iterator = keySet.iterator();
@@ -75,6 +77,7 @@ public class CompareWithOnline extends AnAction {
             String name = iterator.next();
             if (classPath.contains(name)) {
                 String devPath = pathJson.get(name);
+                devPath = devPath.replaceAll("\\\\","/");
                 onlinePath = classPath.replaceAll(name, devPath);
                 break;
             }

@@ -3,7 +3,7 @@
     <name>CompareWithOnline</name>
     <vendor url="https://github.com/heyafeifei/CompareWithOtherDirFile" email="379284166@qq.com">heyafei</vendor>
 
-    <version>1.5.2</version>
+    <version>1.5.3</version>
 
     <idea-version since-build="201" until-build="221.*"/>
 
@@ -28,6 +28,17 @@
 
     <change-notes>
         <![CDATA[
+
+        <p>1.5.3</p>
+        <ul>
+            <li>Fix the problem that the input path is too long</li>
+            <li>Match boxes no longer appear when files are missing</li>
+        </ul>
+        <p>1.5.2</p>
+        <ul>
+            <li>Adapt to more versions</li>
+        </ul>
+        <p>------------中文----------------</p>
         <p>1.5.3</p>
         <ul>
             <li>修复输入路径过长的问题</li>
@@ -37,6 +48,7 @@
         <ul>
             <li>适配更多版本</li>
         </ul>
+
         ]]>
 
     </change-notes>

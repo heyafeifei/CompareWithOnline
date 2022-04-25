@@ -3,7 +3,7 @@
     <name>CompareWithOnline</name>
     <vendor url="https://github.com/heyafeifei/CompareWithOtherDirFile" email="379284166@qq.com">heyafei</vendor>
 
-    <version>1.5.3</version>
+    <version>1.5.4</version>
 
     <idea-version since-build="201" until-build="221.*"/>
 
@@ -39,6 +39,11 @@
             <li>Adapt to more versions</li>
         </ul>
         <p>------------中文----------------</p>
+        <p>1.5.4</p>
+        <ul>
+            <li>修复Windows系统的反斜杠问题</li>
+        </ul>
+
         <p>1.5.3</p>
         <ul>
             <li>修复输入路径过长的问题</li>
